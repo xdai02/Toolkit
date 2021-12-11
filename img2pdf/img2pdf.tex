@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\newcommand\includeFullPageGraphics[2][]{
+  \newpage
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture, overlay, inner sep=0pt]
+    \node at (current page.center) 
+      {\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio=false,#1]{#2}};
+  \end{tikzpicture}
+  \newpage
+}
+
+\begin{document}
+\includeFullPageGraphics{image1.jpg}
+\newpage
+\includeFullPageGraphics{image1.jpg}
+\newpage
+\end{document}
